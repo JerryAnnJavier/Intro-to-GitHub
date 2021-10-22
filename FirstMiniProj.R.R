@@ -37,7 +37,7 @@ complete <- function(directory, id = 1:332){
 }
 ##EXAMPLE_OUTPUT
 complete("specdata", 1)
-complete("specdata", c(2, 4, 10, 12))
+complete("specdata", c(2, 4, 8, 10, 12))
 complete ("specdata", 30:25)
 complete ("specdata", 3)
 
@@ -45,14 +45,13 @@ complete ("specdata", 3)
 
 corr <- function(directory, threshold = 0){
   
+  direct <- list.files("specdata", full.names = TRUE)
+  data <- data.frame()
   cor_output <- numeric(0)
-  
   cases <- complete(directory)
   cases <- cases[cases$nobs>=threshold, ] 
   
-  direct <- list.files("specdata", full.names = TRUE)
-  data <- data.frame()
-  results <- data.frame(id=numeric(0), nobs=numeric(0))
+  
   
   if(nrow(cases)>0){
     for( i in cases$id){
