@@ -1,7 +1,7 @@
 #1
 setwd("C:/Users/Jerry Ann/Documents")
 getwd()
-pollutantmean <- function(directory, pollutant, id= 1:332){
+pollutantMean <- function(directory, pollutant, id= 1:332){
   
   direct <- list.files("specdata", full.names = TRUE)
   data <- data.frame()
@@ -14,9 +14,9 @@ pollutantmean <- function(directory, pollutant, id= 1:332){
 }
 
 ##EXAMPLE_OUTPUT
-pollutantmean("specdata","sulfate", 1:10)
-pollutantmean("specdata","nitrate", 70:72)
-pollutantmean("specdata", "nitrate", 23)
+pollutantMean("specdata","sulfate", 1:10)
+pollutantMean("specdata","nitrate", 70:72)
+pollutantMean("specdata", "nitrate", 23)
 
 #2
 complete <- function(directory, id = 1:332){
@@ -49,7 +49,7 @@ corr <- function(directory, threshold = 0){
   data <- data.frame()
   cor_output <- numeric(0)
   cases <- complete(directory)
-  cases <- cases[cases$nobs>=threshold, ] 
+  cases <- cases[cases$nobs>threshold, ] 
   
   
   
